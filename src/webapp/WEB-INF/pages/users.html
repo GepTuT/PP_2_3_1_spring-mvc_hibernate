@@ -22,9 +22,9 @@
         <td th:text="${user.firstName}"></td>
         <td th:text="${user.lastName}"></td>
         <td th:text="${user.email}"></td>
-        <td><a th:href="@{/users/edituser/{id}(id=${user.id})}" class="button edit">Edit</a></td>
+        <td><a th:href="@{/users/edituser?id={id}(id=${user.id})}" class="button edit">Edit</a></td>
         <td>
-            <form th:action="@{/users/{id}(id=${user.id})}" method="post">
+            <form th:action="@{/users?id={id}(id=${user.id})}" method="post">
                 <input type="hidden" name="_method" value="delete">
                 <input type="submit" value="Delete" class="button delete">
             </form>

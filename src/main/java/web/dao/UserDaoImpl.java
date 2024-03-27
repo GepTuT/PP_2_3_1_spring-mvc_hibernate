@@ -18,18 +18,12 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void deleteUser(Long id) {
-        entityManager.remove(entityManager.find(User.class, id));
+        entityManager.remove(getUser(id));
     }
 
     @Override
-    public void changeUser(User user, Long id) {
-        User userToChange = entityManager.find(User.class,id);
-        if (userToChange != null){
-            userToChange.setFirstName(user.getFirstName());
-            userToChange.setLastName(user.getLastName());
-            userToChange.setEmail(user.getEmail());
-            entityManager.merge(userToChange);
-        }
+    public void changeUser(User user) {
+            entityManager.merge(user);
     }
 
     @Override

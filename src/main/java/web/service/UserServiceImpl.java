@@ -33,8 +33,8 @@ public class UserServiceImpl  implements UserService{
 
     @Override
     @Transactional
-    public void changeUser(User user, Long id) {
-        userDao.changeUser(user,id);
+    public void changeUser(User user) {
+        userDao.changeUser(user);
     }
 
     @Override

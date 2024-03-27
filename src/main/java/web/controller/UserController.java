@@ -30,8 +30,6 @@ public class UserController {
         return "edituser";
     }
 
-
-
     @GetMapping("/saveget")
     public String saveUserGet(@ModelAttribute("user") User user) {
         return "newuser";
@@ -50,9 +48,8 @@ public class UserController {
     }
 
     @PatchMapping("/{id}")
-    public String changeUser(@ModelAttribute("user") User user, @PathVariable("id") Long id) {
-        System.out.println(user);
-        userService.changeUser(user, id);
+    public String changeUser(@ModelAttribute("user") User user) {
+        userService.changeUser(user);
         return "redirect:/users";
     }
 
